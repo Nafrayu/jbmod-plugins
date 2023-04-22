@@ -46,10 +46,14 @@ new ArrayList:g_propowner;
 #include "jb_security/cmd.sp"
 #include "jb_security/lib.sp"
 #include "jb_security/propprotection.sp"
-
+#include "jb_includes/propprotection.inc"
 
 #pragma semicolon 1
-
+public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max)
+{
+	CreateNative("pp_setOwner", native_pp_setOwner);
+	return APLRes_Success;
+}
 
 public OnPluginStart()
 {

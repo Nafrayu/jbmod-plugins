@@ -64,7 +64,8 @@ public Action:cmd_e_stack(int client, int argc)
 			
 			if (IsValidEntity(myfire) && IsEntNetworkable(myfire))
 			{
-				TeleportEntity(myfire, newpos, newpyr, NULL_VECTOR ); 
+				TeleportEntity(myfire, newpos, newpyr, NULL_VECTOR );
+				pp_setOwner(myfire, client);
 			}
 		}
 	}

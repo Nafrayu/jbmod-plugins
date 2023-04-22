@@ -2,12 +2,15 @@
 // {
 
 // }
-void pp_setOwner(ent, client)
+int native_pp_setOwner(Handle hPlugin, int iParams)
 {
+	int ent = GetNativeCell(1);
+	int client = GetNativeCell(2);
 	char steamid[256];
 	GetClientAuthId(client, AuthId_Steam3, steamid, sizeof(steamid));
 	
 	SetArrayString(g_propowner, ent, steamid);
+	return 1
 }
 
 

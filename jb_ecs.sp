@@ -31,12 +31,12 @@ new LaserCache = 0;
 #include "jb_includes/SendMsg_HudMsg.inc"
 #include "jb_includes/SendKeyHintText.inc"
 #include "jb_includes/SendMsg_HudMsg.inc"
-
+#include "jb_includes/propprotection.inc"
 #include "jb_ecs/e_stack.sp"
 #include "jb_ecs/e_add.sp"
 #include "jb_ecs/e_setrot.sp"
 #include "jb_ecs/e_test.sp"
-
+#include "jb_ecs/e_translate.sp"
 
 #pragma semicolon 1
 
@@ -50,7 +50,7 @@ public OnPluginStart()
 	RegAdminCmd("e_stack", cmd_e_stack, ADMFLAG_GENERIC, "e_stack");
 	RegAdminCmd("e_setrot", cmd_e_setrot, ADMFLAG_GENERIC, "e_setrot");
 	RegAdminCmd("e_test", cmd_e_test, ADMFLAG_GENERIC, "e_test");
-	
+	RegAdminCmd("e_translate", cmd_e_translate, ADMFLAG_GENERIC, "e_translate");
 	// hTimer_ecs = CreateTimer(0.0, ecs_timer_test, _, TIMER_REPEAT);
 }
 

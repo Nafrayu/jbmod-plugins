@@ -16,15 +16,17 @@ public Action:cmd_e_translate(int client, int argc)
 	
 	new Float:endpos[3] = {0.0,0.0,0.0};
 	int ent = jb_getAimTargetHit(client, endpos);
-	
-	float pyr[3];
-	pyr[0] = StringToFloat(x);
-	pyr[1] = StringToFloat(y);
-	pyr[2] = StringToFloat(z);
-	
+	float pos[3];
+	GetEntPropVector(ent, Prop_Send, "m_vecOrigin", pos);
+	float offset[3];
+	offset[0] = StringToFloat(x) + pos[0];
+	offset[1] = StringToFloat(y) + pos[1];
+	offset[2] = StringToFloat(z) + pos[2];
+	//float endpos[3];
+	//vec pos;
 	if (IsValidEntity(ent) && IsEntNetworkable(ent))
 	{
-		TeleportEntity(ent, NULL_VECTOR, pyr, NULL_VECTOR ); 
+		TeleportEntity(ent, offset, NULL_VECTOR, NULL_VECTOR ); 
 	}
 	
 	return Plugin_Handled;
